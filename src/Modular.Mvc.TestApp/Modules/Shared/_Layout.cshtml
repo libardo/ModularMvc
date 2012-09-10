@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	@RenderSection("head", false)
+</head>
+<body style="background-color:#665">
+    <div style="width:960px; margin:20px auto; padding:20px; background:#fff">
+        <div>
+            @Html.ActionLink("Home", "Index", "Home")
+            @Html.ActionLink("Management Home", "Index", "ManagementHome")
+            @Html.ActionLink("Create User", "Index", "CreateUser")
+            @Html.ActionLink("User Management", "Index", "ManagementUsers")
+            @Html.ActionLink("Edit User", "Index", new { Controller = "EditUser", pageId = 0 })
+        </div>
+        @RenderBody()
+        <hr />
+        <table>
+            <tr><th>Controller</th><td>@ViewContext.RouteData.Values["Controller"]</td></tr>
+            <tr><th>Action</th><td>@ViewContext.RouteData.Values["Action"]</td></tr>
+        </table>
+        <hr />
+        <table>
+            @foreach (dynamic r in RouteTable.Routes)
+            {
+                <tr><th>@r</th><td>@r.Url</td></tr>
+            }
+        </table>
+        <table>
+            @foreach (var ve in ViewEngines.Engines)
+            {
+                <tr><th>@ve</th><td></td></tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
