@@ -7,6 +7,9 @@ A helper library which allows segmenting ASP.NET MVC controllers and views by fe
 Folder Structure
 ----------------
 
+Use the following folder structure to work within the conventions, or see configure below.
+
+<pre><code>
 # By default the /modules folder is the root containing both controllers and views organized by feature
 /Modules
 	# By default the Home subpath is routed from the parent url
@@ -43,7 +46,7 @@ Folder Structure
 			/ResetController.cs			-> /Users/Password/Reset
 			/ChangeController.cs		-> /Users/Password/Change
 		# etc.
-
+</code></pre>
 
 Initialization
 --------------
@@ -64,11 +67,13 @@ Call this code from Global.asax's Application_Start:
 Configuration
 -------------
 
-Before Register is called on the initialization fluent interface some aspects can be tweaked:
+Before calling Register on the initialization fluent interface some aspects can be tweaked:
 
-*.Route<TController>(url,defaults,constraints)*: Adds more route segments to the route for this particular controller
-*.AddAssemblies(assemblies)*: Adds more assemblies to scanned assemblies
-*.AddCallingAssembly()*: Adds the calling assemblies to scanned assemblies (default when using Initializer.Default)
-*.BelowPath(url)*: Changes the path below which modules are registered (default = "Modules")
-*.Configure(expression)*: Allows for advanced configuration options
-*.PromoteControllerInSubpath(suburl)*: The path to route as the parent url (default = "Home")
+__Modular.Mvc.Initializer.Default...__
+
+* __.Route<TController>(url,defaults,constraints)__: Adds more route segments to the route for this particular controller
+* __.AddAssemblies(assemblies)__: Adds more assemblies to scanned assemblies
+* __.AddCallingAssembly()__: Adds the calling assemblies to scanned assemblies (default when using Initializer.Default)
+* __.BelowPath(url)__: Changes the path below which modules are registered (default = "Modules")
+* __.Configure((s) => expression)__: Allows for advanced configuration options
+* __.PromoteControllerInSubpath(suburl)__: The path to route as the parent url (default = "Home")
