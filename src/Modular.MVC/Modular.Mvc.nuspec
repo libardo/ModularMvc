@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Modular.MVC</id>
+    <version>1.0</version>
+    <authors>Cristian Libardo</authors>
+    <owners>Cristian Libardo</owners>
+    <licenseUrl>https://raw.github.com/libardo/ModularMvc/master/src/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/libardo/ModularMvc</projectUrl>
+    <iconUrl>https://raw.github.com/libardo/ModularMvc/master/doc/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A helper library which allows segmenting ASP.NET MVC controllers and views by feature rather than type.</description>
+    <releaseNotes>Here it is.</releaseNotes>
+    <copyright>Copyright 2012</copyright>
+    <tags>asp.net mvc routing modularization modularmvc</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.Mvc" version="3.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Modular.Mvc.dll" target="lib\net40" />
+  </files>
+</package>
