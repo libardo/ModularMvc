@@ -1,8 +1,51 @@
 Modular.Mvc
 ==========
 
-A helper library which allows segmenting ASP.NET MVC controllers and views by feature rather than type
+A helper library which allows segmenting ASP.NET MVC controllers and views by feature rather than type.
 
+FAQ
+---
+
+__What does this mean, really?__
+
+*The short story is that rathern than:*
+<pre><code>
+/Controllers
+	/HomeController.cs
+	/UsersController.cs
+/Views
+	/Home
+		/Index.cshtml
+	/Users
+		/Index.cshtml
+</code></pre>
+
+*You can do this:*
+<pre><code>
+/Modules
+	/Home
+		/HomeController.cs
+		/Index.cshtml
+	/Users
+		/UsersController.cs
+		/Index.cshtml
+</code></pre>
+
+__Can I do my controller as usual?__
+
+Pretty much, yes.
+
+__How does it work?__
+
+It loops all over your controllers and registers custom routes and view engines to support this convention.
+
+__Does it register routes?__
+
+Yes, it registers routes for all the controllers below the specified modules path. The route urls follows the folder structure when the structure becomes deeper.
+
+__What happens if I move my controller?__
+
+Things will stop working like you expect unless you update the controller's namespace.
 
 Folder Structure
 ----------------
