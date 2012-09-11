@@ -100,7 +100,7 @@ Call this code from Global.asax's Application_Start:
     // The default means the calling assembly (this one) is scanned for controllers below the path /Modules
     Modular.Mvc.Initializer.Default
         // A custom route for EditUserController accepts userId as the last route segment
-        .Route<EditUserController>("{userId}",
+        .Route&lt;EditUserController&gt;("{userId}",
             defaults: new { userId = 0 },
             constraints: new { userId = "\\d" })
         // Performs the actual registration
@@ -112,11 +112,24 @@ Configuration
 
 Before calling Register on the initialization fluent interface some aspects can be tweaked:
 
-__Modular.Mvc.Initializer.Default...__
+<pre><code>
+Modular.Mvc.Initializer.Default..
 
-* __.Route<TController>(url,defaults,constraints)__: Adds more route segments to the route for this particular controller
-* __.AddAssemblies(assemblies)__: Adds more assemblies to scanned assemblies
-* __.AddCallingAssembly()__: Adds the calling assemblies to scanned assemblies (default when using Initializer.Default)
-* __.BelowPath(url)__: Changes the path below which modules are registered (default = "Modules")
-* __.Configure((s) => expression)__: Allows for advanced configuration options
-* __.PromoteControllerInSubpath(suburl)__: The path to route as the parent url (default = "Home")
+	// Adds more route segments to the route for this particular controller
+	.Route&lt;TController&gt;(url,defaults,constraints)
+	
+	// Adds more assemblies to scanned assemblies
+	.AddAssemblies(assemblies)
+	
+	// Adds the calling assemblies to scanned assemblies (default when using Initializer.Default)
+	.AddCallingAssembly()
+	
+	// Changes the path below which modules are registered (default = "Modules")
+	.BelowPath(url)	
+	
+	// Allows for advanced configuration options
+	.Configure((s) => expression)	
+	
+	// The path to route as the parent url (default = "Home")
+	.PromoteControllerInSubpath(suburl)	
+</code></pre>
