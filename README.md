@@ -13,6 +13,9 @@ __What does this mean, really?__
 /Controllers
 	/HomeController.cs
 	/UsersController.cs
+/Models
+	/HomeViewModel.cs
+	/UsersViewModel.cs
 /Views
 	/Home
 		/Index.cshtml
@@ -25,9 +28,11 @@ __What does this mean, really?__
 /Modules
 	/Home
 		/HomeController.cs
+		/HomeViewModel.cs
 		/Index.cshtml
 	/Users
 		/UsersController.cs
+		/UsersViewModel.cs
 		/Index.cshtml
 </code></pre>
 
